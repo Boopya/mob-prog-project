@@ -20,7 +20,7 @@ public class TapActivity extends AppCompatActivity {
     private Timer timer;
     private boolean isTapButtonClickable;
     private int score;
-    private final long START_TIME = 3000;
+    private final long START_TIME = 60000;
     private final long INTERVAL = 1000;
 
     @Override
