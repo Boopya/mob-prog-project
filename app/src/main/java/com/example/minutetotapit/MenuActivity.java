@@ -34,6 +34,7 @@ public class MenuActivity extends AppCompatActivity {
                 Intent intent = new Intent(MenuActivity.this, TapActivity.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -60,6 +61,7 @@ public class MenuActivity extends AppCompatActivity {
                 Intent intent = new Intent(MenuActivity.this, ProfileActivity.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
+                finish();
             }
         });
     }
