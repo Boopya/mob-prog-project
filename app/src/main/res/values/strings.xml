@@ -22,12 +22,11 @@
     <string name="password_label">Password:</string>
     <string name="confirm_pass_label">Confirm\nPassword:</string>
 
-
     <!--activity_menu-->
     <string name="sign_out_txt">Sign Out</string>
     <string name="play_txt">Play</string>
     <string name="high_score_txt">High Score</string>
-    <string name="view_profile_txt">View Profile</string>
+    <string name="view_profile_txt">Tap to view profile</string>
 
     <!--activity_score-->
     <string name="high_scores_txt">High Score</string>
