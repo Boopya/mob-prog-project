@@ -1,5 +1,5 @@
 # Minute To Tap It: A Simple Android Mobile Game
 
-For testing, type in:
-*Username*: Rey
-*Password*: 1234
+**For testing purposes, type in:**<br/>
+Username: *Rey*<br/>
+Password: *1234*
