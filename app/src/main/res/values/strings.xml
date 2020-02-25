@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Minute to Tap It</string>
+
+    <!--activity_tap-->
+    <string name="score">0</string>
+    <string name="start_button">Start</string>
+    <string name="timer">Ready? Press Start</string>
+
+    <!--activity_main-->
+    <string name="press_txt">Press here to start</string>
+
+    <!--activity_login-->
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_in_txt">Sign In</string>
+    <string name="no_account_txt">Don\'t have an account yet?</string>
+    <string name="sign_up_txt"><u>Sign Up</u></string>
+
+    <!--activity_register-->
+    <string name="register_txt">Register</string>
+    <string name="username_label">Username:</string>
+    <string name="password_label">Password:</string>
+    <string name="confirm_pass_label">Confirm\nPassword:</string>
+
+
+    <!--activity_menu-->
+    <string name="sign_out_txt">Sign Out</string>
+    <string name="play_txt">Play</string>
+    <string name="high_score_txt">High Score</string>
+    <string name="view_profile_txt">View Profile</string>
+
+    <!--activity_score-->
+    <string name="high_scores_txt">High Score</string>
+    <string name="default_score">0</string>
+
+    <!--activity_profile-->
+    <string name="your_current_high_score_txt">Your current high score:</string>
+
+    <!--game_menu-->
+    <string name="help">Help</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+
+    <!--about_dialog_fragment-->
+    <string name="about_content">Developed by: Rikiya Yamamoto\n\nThis project was made for Mobile Programming.</string>
+    <string name="ok_button">OK</string>
+
+    <!--help_dialog_fragment-->
+    <string name="help_content">Please contact 201811111@fit.edu.ph for customer support.</string>
+    <string name="understand_button">I Understand</string>
+</resources>
