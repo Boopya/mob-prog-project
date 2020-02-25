@@ -49,6 +49,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
