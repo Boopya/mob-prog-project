@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,22 +7,21 @@
 
     <ImageView
         android:id="@+id/userProfileImageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="160dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112"
         app:srcCompat="@drawable/tap" />
 
-    <TextView
-        android:id="@+id/yourHighestScoreTextView"
-        android:layout_width="162dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="56dp"
-        android:text="@string/your_current_high_score_txt"
+    <ImageView
+        android:id="@+id/currHighScoreImageView"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/curr_high_score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,9 +31,11 @@
         android:id="@+id/currentScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="@string/default_score"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/nova_square"
+        android:textSize="36sp"
+        android:text="@string/initial_score_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourHighestScoreTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/currHighScoreImageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
