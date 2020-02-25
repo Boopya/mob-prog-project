@@ -7,7 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +15,7 @@ import androidx.fragment.app.DialogFragment;
 
 public class TapActivity extends AppCompatActivity {
     private Button startButton;
-    private ImageButton tapButton;
+    private ImageView tapButton;
     private TextView scoreTextView, timerTextView;
     private Timer timer;
     private boolean isTapButtonClickable;
