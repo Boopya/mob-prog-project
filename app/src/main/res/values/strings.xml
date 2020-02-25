@@ -34,6 +34,7 @@
 
     <!--activity_profile-->
     <string name="your_current_high_score_txt">Your current high score:</string>
+    <string name="initial_score_txt">0</string>
 
     <!--game_menu-->
     <string name="help">Help</string>
