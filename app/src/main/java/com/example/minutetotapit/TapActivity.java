@@ -19,7 +19,9 @@ public class TapActivity extends AppCompatActivity {
     private TextView scoreTextView, timerTextView;
     private Timer timer;
     private boolean isTapButtonClickable;
-    private int score;
+    private int score, maxScore;
+    String username;
+    DatabaseHelper db;
     private final long START_TIME = 60000;
     private final long INTERVAL = 1000;
 
@@ -33,7 +35,11 @@ public class TapActivity extends AppCompatActivity {
         scoreTextView = findViewById(R.id.scoreTextView);
         timerTextView = findViewById(R.id.timerTextView);
         timer = new Timer(START_TIME, INTERVAL);
+        username = getIntent().getStringExtra("username");
+        db = new DatabaseHelper(TapActivity.this);
         score = 0;
+        maxScore = db.getScore(username);
+
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,11 +101,9 @@ public class TapActivity extends AppCompatActivity {
 
         @Override
         public void onFinish() {
-            String username = getIntent().getStringExtra("username");
-            DatabaseHelper db = new DatabaseHelper(TapActivity.this);
-            db.updateScore(username, score);
-            isTapButtonClickable = false;
             timerTextView.setText("Time's up! Your score is ");
+            if(score > maxScore) { db.updateScore(username, score); }
+            isTapButtonClickable = false;
             startButton.setEnabled(true);
             score = 0;
         }
