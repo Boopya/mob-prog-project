@@ -36,6 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
     public boolean checkUsername(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(QUERY_ENTRIES, new String[]{username});
+        cursor.close();
         if(cursor.getCount() > 0) { return true; }
         else { return false; }
     }
@@ -43,6 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
     public boolean isValidCredentials(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(CHECK_CREDENTIALS, new String[]{username, password});
+        cursor.close();
         if(cursor.getCount() == 1) return true;
         else return false;
     }
@@ -58,6 +60,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
             } while(cursor.moveToNext());
         }
 
+        cursor.close();
         return score;
     }
 
@@ -78,10 +81,12 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
         if(cursor.moveToFirst()) {
             do {
                 username = cursor.getString(0);
-                score = cursor.getInt(1);
+                score = new Integer(cursor.getInt(1));
                 leaderboard.put(username, score);
             } while(cursor.moveToNext());
         }
+
+        cursor.close();
 
         return leaderboard;
     }
