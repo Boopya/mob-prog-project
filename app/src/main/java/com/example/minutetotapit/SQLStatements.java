@@ -21,4 +21,7 @@ public interface SQLStatements extends DatabaseConstants {
         "SELECT * FROM " + TABLE_NAME + " WHERE " +
             USERNAME_COLUMN + "=?" + " AND " +
             PASSWORD_COLUMN + "=?";
+
+    String GET_LEADERBOARD =
+        "SELECT " + USERNAME_COLUMN + ", " + SCORE_COLUMN + " FROM " + TABLE_NAME;
 }
