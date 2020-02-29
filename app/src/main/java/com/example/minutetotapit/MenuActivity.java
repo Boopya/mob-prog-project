@@ -16,6 +16,7 @@ public class MenuActivity extends AppCompatActivity {
 
     Button playButton, highScoreButton;
     TextView signOutTextView, viewProfileTextView;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MenuActivity extends AppCompatActivity {
         highScoreButton = findViewById(R.id.highScoreButton);
         signOutTextView = findViewById(R.id.signOutTextView);
         viewProfileTextView = findViewById(R.id.viewProfileTextView);
+        db = new DatabaseHelper(this);
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +42,13 @@ public class MenuActivity extends AppCompatActivity {
         highScoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Player[] leaderboard = db.getLeaderboard();
+                Intent intent = new Intent(MenuActivity.this, LeaderboardActivity.class);
+                for(int i = 0; i < leaderboard.length; i++) {
+                    intent.putExtra("username_" + i, leaderboard[i].getPlayerName());
+                    intent.putExtra("score_" + i, leaderboard[i].getPlayerScore());
+                }
+                startActivity(intent);
             }
         });
 
