@@ -36,6 +36,9 @@
     <string name="your_current_high_score_txt">Your current high score:</string>
     <string name="initial_score_txt">0</string>
 
+    <!--activity_leaderboard-->
+    <string name="top_5_txt">Top 5 Highest Score Players</string>
+
     <!--game_menu-->
     <string name="help">Help</string>
     <string name="settings">Settings</string>
