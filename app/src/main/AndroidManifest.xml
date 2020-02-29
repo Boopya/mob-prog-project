@@ -23,6 +23,7 @@
         <activity android:name=".TapActivity"/>
         <activity android:name=".MenuActivity"/>
         <activity android:name=".ProfileActivity"/>
+        <activity android:name=".LeaderboardActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
