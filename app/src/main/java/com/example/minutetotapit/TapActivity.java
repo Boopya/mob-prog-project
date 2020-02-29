@@ -52,7 +52,7 @@ public class TapActivity extends AppCompatActivity implements TimerConstants {
             @Override
             public void onClick(View v) {
                 // set score text view to 0
-                scoreTextView.setText(score);
+                scoreTextView.setText(Integer.toString(score));
                 // make tap button clickable
                 isTapButtonClickable = true;
                 // start the timer
