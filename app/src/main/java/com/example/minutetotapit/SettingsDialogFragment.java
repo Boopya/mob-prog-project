@@ -11,7 +11,7 @@ import androidx.fragment.app.DialogFragment;
 public class SettingsDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
+        // use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.settings)
                 .setItems(R.array.modes, new DialogInterface.OnClickListener() {
@@ -28,7 +28,7 @@ public class SettingsDialogFragment extends DialogFragment {
                     }
                 });
 
-        // Create the AlertDialog object and return it
+        // create the AlertDialog object and return it
         return builder.create();
     }
 }

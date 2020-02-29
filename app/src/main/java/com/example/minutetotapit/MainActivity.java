@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
+    // views declaration
     Button pressButton;
     ImageView titleImageView, tapImageView;
     Animation titleAnimation, tapImageAnimation, pressButtonAnimation;
@@ -35,11 +36,13 @@ public class MainActivity extends AppCompatActivity {
         tapImageView.setAnimation(tapImageAnimation);
         pressButton.setAnimation(pressButtonAnimation);
 
-        // set an onClickListener for pressButton
+        // set an on-click listener
         pressButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // create an Intent object
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                // start the login activity
                 startActivity(intent);
             }
         });

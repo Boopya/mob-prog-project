@@ -14,48 +14,71 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText usernameEditText, passwordEditText, confirmPasswordEditText;
-    private Button registerButton;
-    public DatabaseHelper db;
+    // views and object declaration
+    EditText usernameEditText, passwordEditText, confirmPasswordEditText;
+    Button registerButton;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        // initialize db object
         db = new DatabaseHelper(this);
 
+        // map the widgets to the program
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
         registerButton = findViewById(R.id.registerButton);
 
+        // set an on-click listener
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // initialize and store text read from text fields to username, password, and confirmPassword object
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
                 String confirmPassword = confirmPasswordEditText.getText().toString();
 
+                // check whether one of the text fields is empty
                 if(username.equals("") || password.equals("") || confirmPassword.equals("")) {
+                    // display a Toast object
                     Toast.makeText(getApplicationContext(), "Please fill the fields completely", Toast.LENGTH_SHORT).show();
                 }
 
+                // if the fields are complete, do the following
                 else {
+                    // check if password text field is equal to confirm password text field
                     if(password.equals(confirmPassword)) {
+                        // check for the existence of username in the database
                         boolean usernameExists = db.checkUsername(username);
+                        // if the username does not exist yet, do the following
                         if(!usernameExists) {
+                            // insert newly registered account to database
                             boolean isInserted = db.insertData(username, password);
+                            // check if the account was successfully inserted
                             if(isInserted) {
-                                Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT).show();
+                                // create an Intent object
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                // start the login activity
                                 startActivity(intent);
+                                // display a Toast object
+                                Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT).show();
+                                // close the current activity
+                                finish();
                             }
                         }
+                        // if the username does exist already, do the following
                         else {
+                            // display a Toast object
                             Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
                         }
                     }
+                    // if the password text field is not equal to the confirm password text field, do the following
                     else {
+                        // display a Toast object
                         Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -63,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+    // create an options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -70,6 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
         return true;
     }
 
+    // add listeners to option menu items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {

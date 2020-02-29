@@ -13,40 +13,51 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
-public class TapActivity extends AppCompatActivity {
-    private Button startButton;
-    private ImageView tapButton;
-    private TextView scoreTextView, timerTextView;
-    private Timer timer;
-    private boolean isTapButtonClickable;
-    private int score, maxScore;
-    String username;
+public class TapActivity extends AppCompatActivity implements TimerConstants {
+    // views, objects, and variables declaration
+    Button startButton;
+    ImageView tapButton;
+    TextView scoreTextView, timerTextView;
+    Timer timer;
     DatabaseHelper db;
-    private final long START_TIME = 60000;
-    private final long INTERVAL = 1000;
+    String username;
+    boolean isTapButtonClickable;
+    int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tap);
 
+        // set score initially to 0
+        score = 0;
+
+        // create DatabaseHelper object
+        db = new DatabaseHelper(this);
+
+        // create Timer object
+        timer = new Timer(START_TIME, INTERVAL);
+
+        // fetch username from menu activity
+        username = getIntent().getStringExtra("username");
+
+        // map widgets to the program
         startButton = findViewById(R.id.startButton);
         tapButton = findViewById(R.id.tapButton);
         scoreTextView = findViewById(R.id.scoreTextView);
         timerTextView = findViewById(R.id.timerTextView);
-        timer = new Timer(START_TIME, INTERVAL);
-        username = getIntent().getStringExtra("username");
-        db = new DatabaseHelper(TapActivity.this);
-        score = 0;
-        maxScore = db.getScore(username);
 
-
+        // set an on-click listener
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                scoreTextView.setText(Integer.toString(score));
+                // set score text view to 0
+                scoreTextView.setText(score);
+                // make tap button clickable
                 isTapButtonClickable = true;
+                // start the timer
                 timer.start();
+                // disable the start button
                 startButton.setEnabled(false);
             }
         });
@@ -54,14 +65,18 @@ public class TapActivity extends AppCompatActivity {
         tapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // check if tap button is clickable
                 if(isTapButtonClickable) {
+                    // increment score
                     score++;
-                    scoreTextView.setText(Integer.toString(score));
+                    // update score text view to current score's value
+                    scoreTextView.setText(score);
                 }
             }
         });
     }
 
+    // create an options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -69,6 +84,7 @@ public class TapActivity extends AppCompatActivity {
         return true;
     }
 
+    // add listeners to option menu items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
@@ -89,6 +105,7 @@ public class TapActivity extends AppCompatActivity {
         }
     }
 
+    // create an inner Timer class for the actual game timer
     protected class Timer extends CountDownTimer {
         public Timer(long startTime, long interval) {
             super(startTime, interval);
@@ -102,7 +119,9 @@ public class TapActivity extends AppCompatActivity {
         @Override
         public void onFinish() {
             timerTextView.setText("Time's up! Your score is ");
-            if(score > maxScore) { db.updateScore(username, score); }
+            if(score > db.getScore(username)) {
+                db.updateScore(username, score);
+            }
             isTapButtonClickable = false;
             startButton.setEnabled(true);
             score = 0;

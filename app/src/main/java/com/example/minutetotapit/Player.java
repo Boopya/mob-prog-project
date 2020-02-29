@@ -1,12 +1,12 @@
 package com.example.minutetotapit;
 
-public class Player {
+public class Player implements PlayerConstants {
     private String username;
     private int score;
 
     public Player() {
-        username = "";
-        score = 0;
+        username = DEFAULT_USERNAME;
+        score = DEFAULT_SCORE;
     }
 
     public void setPlayerName(String username) {
