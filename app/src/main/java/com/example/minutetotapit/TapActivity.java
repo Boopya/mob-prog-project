@@ -70,7 +70,7 @@ public class TapActivity extends AppCompatActivity implements TimerConstants {
                     // increment score
                     score++;
                     // update score text view to current score's value
-                    scoreTextView.setText(score);
+                    scoreTextView.setText(Integer.toString(score));
                 }
             }
         });

@@ -35,7 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
         currentScoreTextView = findViewById(R.id.currentScoreTextView);
 
         // set the current highest score record of user
-        currentScoreTextView.setText(score);
+        currentScoreTextView.setText(Integer.toString(score));
     }
 
     // create an options menu
