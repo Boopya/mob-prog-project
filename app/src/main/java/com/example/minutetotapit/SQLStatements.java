@@ -23,5 +23,5 @@ public interface SQLStatements extends DatabaseConstants {
             PASSWORD_COLUMN + "=?";
 
     String GET_LEADERBOARD =
-        "SELECT " + USERNAME_COLUMN + ", " + SCORE_COLUMN + " FROM " + TABLE_NAME + " WHERE ROWNUM = 5";
+        "SELECT " + USERNAME_COLUMN + ", " + SCORE_COLUMN + " FROM " + TABLE_NAME;
 }
