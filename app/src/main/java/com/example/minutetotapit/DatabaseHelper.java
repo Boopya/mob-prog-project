@@ -3,10 +3,9 @@ package com.example.minutetotapit;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import java.util.HashMap;
 
 public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstants, SQLStatements {
     public DatabaseHelper(Context context) {
@@ -36,7 +35,6 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
     public boolean checkUsername(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(QUERY_ENTRIES, new String[]{username});
-        cursor.close();
         if(cursor.getCount() > 0) { return true; }
         else { return false; }
     }
@@ -44,7 +42,6 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
     public boolean isValidCredentials(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(CHECK_CREDENTIALS, new String[]{username, password});
-        cursor.close();
         if(cursor.getCount() == 1) return true;
         else return false;
     }
@@ -60,7 +57,6 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
             } while(cursor.moveToNext());
         }
 
-        cursor.close();
         return score;
     }
 
@@ -71,23 +67,27 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
         db.update(TABLE_NAME, contentValues, USERNAME_COLUMN + "=?", new String[]{username});
     }
 
-    public HashMap<String, Integer> getLeaderboard() {
-        HashMap<String, Integer> leaderboard = new HashMap<>();
-        String username;
-        Integer score;
+    public Player[] getLeaderboard() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(GET_LEADERBOARD, null);
+        long count = DatabaseUtils.queryNumEntries(db, TABLE_NAME);
+        Player[] leaderboard = new Player[(int)count];
+        int i = 0;
 
+        Cursor cursor = db.rawQuery(GET_LEADERBOARD, null);
         if(cursor.moveToFirst()) {
             do {
-                username = cursor.getString(0);
-                score = new Integer(cursor.getInt(1));
-                leaderboard.put(username, score);
-            } while(cursor.moveToNext());
+                leaderboard[i] = new Player();
+                leaderboard[i].setPlayerName(cursor.getString(0));
+                leaderboard[i].setPlayerScore(cursor.getInt(1));
+                i++;
+            } while(cursor.moveToNext() && i < leaderboard.length);
         }
 
-        cursor.close();
-
         return leaderboard;
+    }
+
+    public long getUsersCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return DatabaseUtils.queryNumEntries(db, TABLE_NAME);
     }
 }
