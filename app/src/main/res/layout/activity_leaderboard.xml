@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_bg">
 
     <TableLayout
         android:id="@+id/leaderboardLayout"
@@ -23,7 +24,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
             <TextView
@@ -32,7 +35,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
         </TableRow>
@@ -44,7 +49,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
             <TextView
@@ -53,7 +60,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
         </TableRow>
@@ -65,7 +74,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
             <TextView
@@ -74,7 +85,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
         </TableRow>
@@ -86,7 +99,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
             <TextView
@@ -95,7 +110,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
         </TableRow>
@@ -107,7 +124,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
             <TextView
@@ -116,7 +135,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:padding="5dp"
+                android:fontFamily="@font/nova_square"
                 android:textSize="25dp"
+                android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
         </TableRow>
@@ -127,7 +148,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        android:fontFamily="@font/nova_square"
         android:text="@string/top_5_txt"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

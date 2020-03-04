@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_bg">
 
     <EditText
         android:id="@+id/usernameEditText"
@@ -13,6 +14,7 @@
         android:layout_marginTop="112dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toEndOf="@+id/usernameTextView"
@@ -26,6 +28,7 @@
         android:layout_marginTop="84dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@+id/passwordTextView"
         app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
 
@@ -37,6 +40,7 @@
         android:layout_marginTop="92dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColor="@android:color/white"
         app:layout_constraintStart_toEndOf="@+id/confirmPasswordTextView"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
@@ -46,7 +50,10 @@
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="120dp"
+        android:background="@android:color/background_dark"
+        android:fontFamily="@font/nova_square"
         android:text="@string/register_txt"
+        android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="124dp"
+        android:fontFamily="@font/nova_square"
         android:text="@string/username_label"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -69,7 +78,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="100dp"
+        android:fontFamily="@font/nova_square"
         android:text="@string/password_label"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
@@ -80,7 +91,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="100dp"
+        android:fontFamily="@font/nova_square"
         android:text="@string/confirm_pass_label"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />

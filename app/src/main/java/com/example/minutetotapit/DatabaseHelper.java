@@ -8,8 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstants, PlayerConstants, SQLStatements {
+
+    Context context;
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -134,5 +138,10 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseConstant
         }
 
         return leaderboard;
+    }
+
+    public void deleteAccount(String username) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, USERNAME_COLUMN + "=?", new String[]{username});
     }
 }

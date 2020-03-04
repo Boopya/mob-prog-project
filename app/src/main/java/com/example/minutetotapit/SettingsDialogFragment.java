@@ -2,13 +2,22 @@ package com.example.minutetotapit;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.fragment.app.DialogFragment;
 
 public class SettingsDialogFragment extends DialogFragment {
+
+    String username;
+    Context context;
+
+    public SettingsDialogFragment(String username, Context context) {
+        this.username = username;
+        this.context = context;
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // use the Builder class for convenient dialog construction
@@ -17,14 +26,8 @@ public class SettingsDialogFragment extends DialogFragment {
                 .setItems(R.array.modes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        switch (which) {
-                            case 0: // Night Mode
-                                Toast.makeText(getContext(), "Night Mode", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 1: // Normal Mode
-                                Toast.makeText(getContext(), "Normal Mode", Toast.LENGTH_SHORT).show();
-                                break;
-                        }
+                        DialogFragment deleteAccountDialogFragment = new DeleteAccountDialogFragment(username, context);
+                        deleteAccountDialogFragment.show(getFragmentManager(), "delete_account");
                     }
                 });
 

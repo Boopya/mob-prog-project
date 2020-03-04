@@ -2,16 +2,12 @@ package com.example.minutetotapit;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 public class TapActivity extends AppCompatActivity implements TimerConstants {
     // views, objects, and variables declaration
@@ -21,7 +17,7 @@ public class TapActivity extends AppCompatActivity implements TimerConstants {
     Timer timer;
     DatabaseHelper db;
     String username;
-    boolean isTapButtonClickable;
+    boolean tapButtonIsClickable;
     int score;
 
     @Override
@@ -54,11 +50,11 @@ public class TapActivity extends AppCompatActivity implements TimerConstants {
                 // set score text view to 0
                 scoreTextView.setText(Integer.toString(score));
                 // make tap button clickable
-                isTapButtonClickable = true;
+                tapButtonIsClickable = true;
                 // start the timer
                 timer.start();
                 // disable the start button
-                startButton.setEnabled(false);
+                startButton.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -66,7 +62,7 @@ public class TapActivity extends AppCompatActivity implements TimerConstants {
             @Override
             public void onClick(View v) {
                 // check if tap button is clickable
-                if(isTapButtonClickable) {
+                if(tapButtonIsClickable) {
                     // increment score
                     score++;
                     // update score text view to current score's value
@@ -74,35 +70,6 @@ public class TapActivity extends AppCompatActivity implements TimerConstants {
                 }
             }
         });
-    }
-
-    // create an options menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.game_menu, menu);
-        return true;
-    }
-
-    // add listeners to option menu items
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.settings:
-                DialogFragment settingsDialogFragment = new SettingsDialogFragment();
-                settingsDialogFragment.show(getSupportFragmentManager(), "settings");
-                return true;
-            case R.id.help:
-                DialogFragment helpDialogFragment = new HelpDialogFragment();
-                helpDialogFragment.show(getSupportFragmentManager(), "help");
-                return true;
-            case R.id.about:
-                DialogFragment aboutDialogFragment = new AboutDialogFragment();
-                aboutDialogFragment.show(getSupportFragmentManager(), "about");
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     // create an inner Timer class for the actual game timer
@@ -122,8 +89,8 @@ public class TapActivity extends AppCompatActivity implements TimerConstants {
             if(score > db.getScore(username)) {
                 db.updateScore(username, score);
             }
-            isTapButtonClickable = false;
-            startButton.setEnabled(true);
+            tapButtonIsClickable = false;
+            startButton.setVisibility(View.VISIBLE);
             score = 0;
         }
     }

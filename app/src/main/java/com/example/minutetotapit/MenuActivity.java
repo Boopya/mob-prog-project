@@ -107,7 +107,7 @@ public class MenuActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.settings:
-                DialogFragment settingsDialogFragment = new SettingsDialogFragment();
+                DialogFragment settingsDialogFragment = new SettingsDialogFragment(username, getApplicationContext());
                 settingsDialogFragment.show(getSupportFragmentManager(), "settings");
                 return true;
             case R.id.help:

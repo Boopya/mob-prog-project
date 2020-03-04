@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_bg">
 
     <ImageView
         android:id="@+id/userProfileImageView"
@@ -16,12 +17,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tap" />
 
-    <ImageView
-        android:id="@+id/currHighScoreImageView"
+    <TextView
+        android:id="@+id/currHighScoreTextView"
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/curr_high_score"
+        android:fontFamily="@font/nova_square"
+        android:text="@string/your_current_high_score_txt"
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +40,8 @@
         android:fontFamily="@font/nova_square"
         android:textSize="36sp"
         android:text="@string/initial_score_txt"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currHighScoreImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/currHighScoreTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

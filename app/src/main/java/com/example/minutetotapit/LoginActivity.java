@@ -2,9 +2,6 @@ package com.example.minutetotapit;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 
 public class LoginActivity extends AppCompatActivity {
     // views and object declaration
@@ -20,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     Button signInButton;
     TextView signUpTextView;
     DatabaseHelper db;
+    String username, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +37,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // get the text from the username and password field
-                String username = usernameLoginEditText.getText().toString();
-                String password = passwordLoginEditText.getText().toString();
+                username = usernameLoginEditText.getText().toString();
+                password = passwordLoginEditText.getText().toString();
 
                 // check if the username and password match and exist in the database
                 if(db.isValidCredentials(username, password)) {
@@ -74,34 +71,5 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }
-
-    // create an options menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.game_menu, menu);
-        return true;
-    }
-
-    // add listeners to option menu items
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
-            case R.id.settings:
-                DialogFragment settingsDialogFragment = new SettingsDialogFragment();
-                settingsDialogFragment.show(getSupportFragmentManager(), "settings");
-                return true;
-            case R.id.help:
-                DialogFragment helpDialogFragment = new HelpDialogFragment();
-                helpDialogFragment.show(getSupportFragmentManager(), "help");
-                return true;
-            case R.id.about:
-                DialogFragment aboutDialogFragment = new AboutDialogFragment();
-                aboutDialogFragment.show(getSupportFragmentManager(), "about");
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 }
