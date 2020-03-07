@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/userProfileImageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/profile_tap_icon_image_view_width"
+        android:layout_height="@dimen/profile_tap_icon_image_view_height"
         android:layout_marginTop="160dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -19,14 +19,14 @@
 
     <TextView
         android:id="@+id/currHighScoreTextView"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="@dimen/currrent_high_score_text_view_width"
+        android:layout_height="@dimen/currrent_high_score_text_view_height"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/nova_square"
         android:text="@string/your_current_high_score_txt"
         android:textColor="@android:color/white"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="@dimen/current_high_score_text_view_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/nova_square"
-        android:textSize="36sp"
+        android:textSize="@dimen/current_score_text_view_size"
         android:text="@string/initial_score_txt"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"

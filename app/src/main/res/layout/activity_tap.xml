@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/tapButton"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/tap_button_image_view_width"
+        android:layout_height="@dimen/tap_button_image_view_height"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -28,7 +28,7 @@
         android:textColor="@android:color/white"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="36sp"
+        android:textSize="@dimen/score_text_view_size"
         android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
         android:fontFamily="@font/nova_square"
         android:text="@string/timer"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="@dimen/timer_text_view_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +50,8 @@
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/start_button_width"
+        android:layout_height="@dimen/start_button_height"
         android:layout_marginTop="60dp"
         android:background="@android:color/background_dark"
         android:fontFamily="@font/nova_square"

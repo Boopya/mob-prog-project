@@ -8,7 +8,7 @@
 
     <TableLayout
         android:id="@+id/leaderboardLayout"
-        android:layout_width="250dp"
+        android:layout_width="@dimen/leaderboard_layout_height"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
@@ -36,7 +36,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
@@ -50,7 +50,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
@@ -61,7 +61,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
@@ -75,7 +75,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
@@ -86,7 +86,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
@@ -100,7 +100,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
@@ -111,7 +111,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="center"
                 />
@@ -125,7 +125,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:fontFamily="@font/nova_square"
-                android:textSize="25dp"
+                android:textSize="@dimen/leaderboard_player_text_size"
                 android:textColor="@android:color/white"
                 android:textAlignment="viewStart"
                 />
@@ -152,7 +152,7 @@
         android:text="@string/top_5_txt"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="30sp"
+        android:textSize="@dimen/leaderboard_title_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

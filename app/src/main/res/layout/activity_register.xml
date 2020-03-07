@@ -46,8 +46,8 @@
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/register_button_width"
+        android:layout_height="@dimen/register_button_height"
         android:layout_marginStart="16dp"
         android:layout_marginTop="120dp"
         android:background="@android:color/background_dark"
@@ -68,7 +68,7 @@
         android:fontFamily="@font/nova_square"
         android:text="@string/username_label"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="@dimen/username_text_view_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,7 +81,7 @@
         android:fontFamily="@font/nova_square"
         android:text="@string/password_label"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="@dimen/password_text_view_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameTextView" />
 
@@ -94,7 +94,7 @@
         android:fontFamily="@font/nova_square"
         android:text="@string/confirm_pass_label"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="@dimen/confirm_password_text_view_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
